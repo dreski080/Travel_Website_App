@@ -7,7 +7,66 @@ import TravelItem from "../travel-item";
 import SecondaryButton from "../secondary-button/SecondaryButton";
 
 const Travel = () => {
-  return <Typography>Travel</Typography>;
+  return <Container disableGutters maxWidth='xl' sx={{
+    px: {
+      xs: 2,
+      sm: 5,
+      md: 10
+    },
+    my: 15
+  }}>
+    <Box sx={{
+      display: 'flex',
+      justifyContent: 'space-between',
+      mb: 8,
+      flexDirection: {
+        xs: 'column',
+        md: 'row'
+      },
+      alignItems: 'center',
+      textAlign: {
+        xs: 'center',
+        md: 'left'
+      },
+      gap: 2
+    }}>
+      <Typography sx={{
+        fontFamily: 'Poppins',
+        fontWeight: '600',
+        fontSize: '32px',
+        color: '#161414',
+        width: 'fit-content'
+      }}>
+        Travel Tips and Service
+      </Typography>
+      <SecondaryButton text='view all' />
+    </Box>
+    <Box sx={{
+      display: 'flex',
+      gap: {
+        xs: 4,
+        lg: 2
+      },
+      justifyContent: {
+        xs: 'flex-start',
+        lg: 'space-between'
+      },
+      flexDirection: {
+        xs: 'column',
+        lg: 'row'
+      },
+      alignItems: {
+        xs: 'center',
+        lg: 'flex-start'
+      }
+    }}>
+      {
+        travelItems.map(item => (
+          <TravelItem key={item.id} text={item.text} location={item.location} image={item.image} calendarText={item.calendarText} userText={item.userText} commentsText={item.commentsText} />
+        ))
+      }
+    </Box>
+  </Container>;
 };
 
 export default Travel;
